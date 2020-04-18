@@ -44,6 +44,9 @@ public class ArrayQueue {
     }
 
     public Object pop() {
+        if (beginIndex > endIndex) {
+            return null;
+        }
         Object object = arr[beginIndex];
         arr[beginIndex++] = null;
         return object;
@@ -65,6 +68,11 @@ public class ArrayQueue {
     public static void main(String[] args) {
         ArrayQueue arrayQueue = new ArrayQueue();
         arrayQueue.push(1);
+        System.out.println(arrayQueue.peek());
+        System.out.println(arrayQueue.pop());
+        System.out.println(arrayQueue.empty());
+        arrayQueue.push(2);
+        arrayQueue.push(3);
         System.out.println(arrayQueue.peek());
         System.out.println(arrayQueue.pop());
         System.out.println(arrayQueue.empty());
